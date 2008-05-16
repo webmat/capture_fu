@@ -4,7 +4,7 @@ module CaptureOutput
     real_out, real_err = $stdout, $stderr
     result = fake_out = fake_err = nil
     begin
-      fake_out, fake_err = HelperClasses::PipeStealer.new, HelperClasses::PipeStealer.new
+      fake_out, fake_err = Helpers::PipeStealer.new, Helpers::PipeStealer.new
       $stdout, $stderr = fake_out, fake_err
       result = yield
     ensure
@@ -16,14 +16,27 @@ module CaptureOutput
   # This first implementation is only intended for batch executions.
   # You can't pipe stuff programmatically to the child process.
   def capture_process_output(command)
+    #capture stderr in the same stream
+    command << ' 2>&1' unless command =~ /2>&1\Z/
+
     out = `#{command}`
-    return $?, out
+    return $?.exitstatus, out
   end
 
 
   private
 
-  module HelperClasses
+  def stderr_already_redirected(command)
+    #Already redirected to stdout (valid for Windows)
+    return true if command =~ /2>&1\s*\Z/
+    
+    #Redirected to /dev/null (this is clearly POSIX-dependent)
+    return true if command =~ /2>\/dev\/null\s*\Z/
+
+    return false
+  end
+
+  module Helpers
     class PipeStealer < File
       attr_reader :captured
       def initialize

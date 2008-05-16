@@ -1,3 +1,5 @@
 - Document
 - capture_warnings
 - make into a gem?
+- For subprocess stderr redirect detection:
+  - add flexibility related to spaces between elements describing the redirect?
