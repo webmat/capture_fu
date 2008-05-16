@@ -21,5 +21,11 @@ class CaptureOutputNotIntrusiveWhenIncludedTest < Test::Unit::TestCase
       PipeStealer.new
     end
   end
+
+  def test__utility_methods__not_polluting_namespace
+    assert_raise(NameError) do 
+      stderr_already_redirected('echo jeez')
+    end
+  end
 end
 
