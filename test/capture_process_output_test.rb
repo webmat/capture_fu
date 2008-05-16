@@ -8,6 +8,8 @@ class CaptureProcessOutputTest < Test::Unit::TestCase
   end
 
   def test_successful_execution
-    #result, out = capture_process_output('echo jeez')
+    res, out = capture_process_output('echo jeez')
+    assert_equal 0, res
+    assert_equal "jeez\n", out
   end
 end

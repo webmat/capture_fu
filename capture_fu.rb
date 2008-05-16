@@ -13,8 +13,11 @@ module CaptureOutput
     return result, fake_out.captured, fake_err.captured
   end
 
+  # This first implementation is only intended for batch executions.
+  # You can't pipe stuff programmatically to the child process.
   def capture_process_output(command)
-    raise NotImplementedError
+    out = `#{command}`
+    return $?, out
   end
 
 
