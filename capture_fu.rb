@@ -17,7 +17,7 @@ module CaptureFu
   # You can't pipe stuff programmatically to the child process.
   def capture_process_output(command)
     #capture stderr in the same stream
-    command << ' 2>&1' unless command =~ /2>&1\Z/
+    command << ' 2>&1' unless Helpers.stderr_already_redirected(command)
 
     out = `#{command}`
     return $?.exitstatus, out
@@ -26,17 +26,18 @@ module CaptureFu
 
   private
 
-  def stderr_already_redirected(command)
-    #Already redirected to stdout (valid for Windows)
-    return true if command =~ /2>&1\s*\Z/
-    
-    #Redirected to /dev/null (this is clearly POSIX-dependent)
-    return true if command =~ /2>\/dev\/null\s*\Z/
-
-    return false
-  end
-
   module Helpers
+    
+    def self.stderr_already_redirected(command)
+      #Already redirected to stdout (valid for Windows)
+      return true if command =~ /2>&1\s*\Z/
+
+      #Redirected to /dev/null (this is clearly POSIX-dependent)
+      return true if command =~ /2>\/dev\/null\s*\Z/
+
+      return false
+    end
+
     class PipeStealer < File
       attr_reader :captured
       def initialize
@@ -50,5 +51,6 @@ module CaptureFu
         @captured.dup
       end
     end
-  end
+
+  end #Helper module
 end

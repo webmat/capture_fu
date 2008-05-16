@@ -23,7 +23,7 @@ class CaptureOutputNotIntrusiveWhenIncludedTest < Test::Unit::TestCase
   end
 
   def test__utility_methods__not_polluting_namespace
-    assert_raise(NameError) do 
+    assert_raise(NoMethodError) do 
       stderr_already_redirected('echo jeez')
     end
   end
