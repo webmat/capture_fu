@@ -16,6 +16,7 @@ module CaptureFu
   # This first implementation is only intended for batch executions.
   # You can't pipe stuff programmatically to the child process.
   def capture_process_output(command)
+
     #capture stderr in the same stream
     command << ' 2>&1' unless Helpers.stderr_already_redirected(command)
 

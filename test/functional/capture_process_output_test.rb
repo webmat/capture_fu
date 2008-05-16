@@ -25,8 +25,21 @@ class CaptureProcessOutputTest < Test::Unit::TestCase
     # Comments welcome.
     assert_equal 127, res
     assert !out.empty?
+    assert_match /ewrewrtegfdghg/, out
   end
 
-  def test_already_redirect_stderr
+  def test_ignored_stderr
+    res, out = capture_process_output('ewrewrtegfdghg  2>/dev/null')
+
+    #May not be OS-independent
+    assert out.empty?
+  end
+
+  def test_already_redirected_stderr
+    res, out = capture_process_output('ewrewrtegfdghg 2>&1')
+
+    #May not be OS-independent
+    assert !out.empty?
+    assert_match /ewrewrtegfdghg/, out
   end
 end
