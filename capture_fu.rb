@@ -1,4 +1,4 @@
-module CaptureOutput
+module CaptureFu
 
   def capture_output(&block)
     real_out, real_err = $stdout, $stderr

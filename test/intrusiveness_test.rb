@@ -14,7 +14,7 @@ class CaptureOutputNotIncludedByDefaultTest < Test::Unit::TestCase
 end
 
 class CaptureOutputNotIntrusiveWhenIncludedTest < Test::Unit::TestCase
-  include CaptureOutput
+  include CaptureFu
 
   def test__utility_classes__not_polluting_namespace_when_not_explicitly_included
     assert_raise(NameError) do

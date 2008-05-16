@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/test_helper'
 
 class CaptureProcessOutputTest < Test::Unit::TestCase
-  include CaptureOutput
+  include CaptureFu
 
   def setup
     super
