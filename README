@@ -1,7 +1,6 @@
 capture_fu is a small library that facilitates capture of stdout and stderr outputs. 
 
-Useful for testing console output of command-line tools or to wrap the use of
-another command-line tool inside your program.
+This can be useful for testing console output of command-line tools or to wrap the use of another command-line tool inside your program.
 
 
 Authors
