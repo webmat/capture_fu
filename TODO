@@ -3,3 +3,4 @@
 - make into a gem?
 - For subprocess stderr redirect detection:
   - add flexibility related to spaces between elements describing the redirect?
+- check out http://tldp.org/LDP/abs/html/io-redirection.html for more info on redirection
