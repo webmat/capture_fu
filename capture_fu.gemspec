@@ -2,8 +2,7 @@ Gem::Specification.new do |s|
   s.name = "capture_fu"
   s.version = "0.0.1"
   s.date = "2008-05-21"
-  s.summary = "capture_fu is a small library that facilitates capture of stdout " +
-    "and stderr output."
+  s.summary = "capture_fu facilitates the capture of stdout and stderr output"
   s.email = "webmat@gmail.com"
   s.homepage = "http://github.com/webmat/capture_fu"
   s.description = "capture_fu is a small library that facilitates capture of stdout " +
