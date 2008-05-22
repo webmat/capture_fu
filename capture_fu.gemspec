@@ -1,3 +1,4 @@
+#Not very DRY vs Rakefile
 require 'rake'
 Gem::Specification.new do |s|
   s.name        = 'capture_fu'
