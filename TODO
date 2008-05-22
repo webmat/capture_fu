@@ -3,4 +3,6 @@
 - make into a gem?
 - For subprocess stderr redirect detection:
   - add flexibility related to spaces between elements describing the redirect?
+- ability to capture stdout and stderr separately
+   - use pipe & filter to have them both separate as well as the final result in order :-)
 - check out http://tldp.org/LDP/abs/html/io-redirection.html for more info on redirection
