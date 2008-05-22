@@ -3,5 +3,18 @@ capture_fu is a small library that facilitates capture of stdout and stderr outp
 This can be useful for testing console output of command-line tools or to wrap the use of another command-line tool inside your program.
 
 
+Usage
+
+Let's simply go by example:
+out = capture_output{ puts 'normal output' ; $stderr.puts 'error' ; 'the return value of the block' }
+#=> ["the return value of the block", "normal output\n", "error\n"]
+
+Or if you prefer:
+ret, out, err = capture_output{ puts 'normal output' ; $stderr.puts 'error' ; 'the return value of the block' }
+
+
+Note that the output generated inside capture_output's block is not displayed at the console.
+
+
 Authors
 - Mathieu Martin, webmat@gmail.com

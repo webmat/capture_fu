@@ -1,8 +1,12 @@
-- Document
 - capture_warnings(&block)
-- make into a gem?
+
+- ability to capture stdout and stderr separately
+  - use pipe & filter to have them both separate as well as the final result in order :-)
+- make it possible to call in verbose mode and display the output at the console
+  in addition to capturing it
+
+- Document
+
 - For subprocess stderr redirect detection:
   - add flexibility related to spaces between elements describing the redirect?
-- ability to capture stdout and stderr separately
-   - use pipe & filter to have them both separate as well as the final result in order :-)
 - check out http://tldp.org/LDP/abs/html/io-redirection.html for more info on redirection
