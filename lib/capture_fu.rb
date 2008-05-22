@@ -1,4 +1,5 @@
 module CaptureFu
+  VERSION = '0.0.1'
 
   def capture_output(&block)
     real_out, real_err = $stdout, $stderr

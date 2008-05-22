@@ -5,13 +5,11 @@ require 'rake/testtask'
 require 'rake/gempackagetask'
 
 require 'yaml'
-require 'fileutils'
-include FileUtils
 
-require 'ruby-debug'
+require "#{File.dirname(__FILE__)}/lib/capture_fu"
+
 
 NAME = 'capture_fu'
-_VERSION = '0.0.1'
 
 windows = (RUBY_PLATFORM =~ /win32|cygwin/) rescue nil
 install_home = ENV['GEM_HOME'] ? "-i #{ENV['GEM_HOME']}" : ""
@@ -20,7 +18,7 @@ SUDO = windows ? "" : "sudo"
 
 spec = Gem::Specification.new do |s|
   s.name        = NAME
-  s.version     = _VERSION
+  s.version     = CaptureFu::VERSION
   s.summary     = "capture_fu facilitates the capture of stdout and stderr output"
 
   s.authors     << "Mathieu Martin"
@@ -63,7 +61,7 @@ namespace :gem do
 
   desc "Run :package and install the resulting .gem"
   task :install => :gem do
-    sh %{#{SUDO} gem install #{install_home} --local pkg/#{NAME}-#{_VERSION}.gem --no-rdoc --no-ri}
+    sh %{#{SUDO} gem install #{install_home} --local pkg/#{NAME}-#{CaptureFu::VERSION}.gem --no-rdoc --no-ri}
   end
 
   desc "Run :clean and uninstall the .gem"
