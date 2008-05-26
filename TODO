@@ -5,7 +5,7 @@
 - make it possible to call in verbose mode and display the output at the console
   in addition to capturing it
 
-- Document
+- Documentation
 
 - For subprocess stderr redirect detection:
   - add flexibility related to spaces between elements describing the redirect?

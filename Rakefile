@@ -27,8 +27,8 @@ spec = Gem::Specification.new do |s|
   s.description = "capture_fu is a small library that facilitates capture of stdout " +
     "and stderr output, of either subprocesses or plain old Ruby code."
 
-  s.files       = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*.rb']
-  s.test_files  = FileList['test/**/*.rb']
+  s.files       = Dir['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*.rb']
+  s.test_files  = Dir['test/**/*.rb']
 
   s.has_rdoc    = false
 end
@@ -44,12 +44,12 @@ task :default => :test
 
 namespace :gem do
 
-  #Friggin' task doesn't work! wtf?
-  task(:update_gemspec) do
-    File.open("#{NAME}.gemspec", 'w') do |f| 
-      f.write(spec.to_yaml)
-    end
-  end
+  ##Friggin' task doesn't work! wtf?
+  #task(:update_gemspec) do
+  #  File.open("#{NAME}.gemspec", 'w') do |f| 
+  #    f.write(spec.to_yaml)
+  #  end
+  #end
 
   #Creates clobber_package, gem,  package, repackage tasks
   #Note on clobber_package: fortunately, this will clobber the CODE package
