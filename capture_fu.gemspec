@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.test_files  = %w{test/capture_output_test.rb
                     test/functional/capture_output_test.rb test/functional/capture_process_output_test.rb 
                     test/unit/capture_output_test.rb test/unit/intrusiveness_test.rb}
-  s.files       = %w{Rakefile README TODO lib/capture_fu} + s.test_files
+  s.files       = %w{Rakefile README TODO lib/capture_fu.rb} + s.test_files
 
   s.has_rdoc    = false
 end

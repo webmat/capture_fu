@@ -16,5 +16,12 @@ ret, out, err = capture_output{ puts 'normal output' ; $stderr.puts 'error' ; 't
 Note that the output generated inside capture_output's block is not displayed at the console.
 
 
+Installation
+
+gem install webmat-capture_fu --source=http://gems.github.com
+and
+require 'capture_fu'
+
+
 Authors
 - Mathieu Martin, webmat@gmail.com
